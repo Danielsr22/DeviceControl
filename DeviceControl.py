@@ -14,7 +14,7 @@ El método recomendado es utilizar el archivo ~/.profile, conteniendo lo siguien
 
 - Si el dispositivo arranca APAGADO:
 	echo "0" > /tmp/device_status
-	
+
 """
 
 
@@ -61,16 +61,18 @@ if (status == "1"):
 	try:
 		system(disable_dev)
 		print('Desactivando...')
-		system('notify-send -i checkbox-mixed-symbolic "Disposivo Desactivado" "El dispositivo Synaptics Large Touch Screen ha sido desactivado"')
+		cmdDev = 'notify-send -i checkbox-mixed-symbolic "Disposivo Desactivado" "'+device+' ha sido desactivado"'
+		system(cmdDev)
 		system('echo "0" > /tmp/device_status')
 	except:
 		system('notify-send -i checkbox-mixed-symbolic "Error al Desactivar" "Se produjo un error al intentar desactivar el dispositivo"')
 
 if (status == "0"):
 	try:
-		print('Activando...')
 		system(enable_dev)
-		system('notify-send -i checkbox-checked-symbolic "Disposivo Activado" "El dispositivo Synaptics Large Touch Screen ha sido activado"')
+		print('Activando...')
+		cmdDev = 'notify-send -i checkbox-checked-symbolic "Disposivo Activado" "'+device+' ha sido activado"'
+		system(cmdDev)
 		system('echo "1" > /tmp/device_status')
 	except:
 		system('notify-send -i checkbox-checked-symbolic "Error al Activar" "Se produjo un error al intentar activar el dispositivo"')
