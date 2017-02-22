@@ -6,7 +6,16 @@ intercambiando su estado de "enable" a "disable" y viceversa.
 Es recomendable asignar su ejecución a una combinación de teclas específica.
 
 Importante: Al iniciar el sistema se debe crear el archivo /tmp/device_status, el cual debe 
-contener un 1 o un 0, dependiendo del estado inicial del dispositivo a controlar."""
+contener un 1 o un 0, dependiendo del estado inicial del dispositivo a controlar.
+El método recomendado es utilizar el archivo ~/.profile, conteniendo lo siguiente.
+
+- Si el dispositivo arranca ENCENDIDO:
+	echo "1" > /tmp/device_status
+
+- Si el dispositivo arranca APAGADO:
+	echo "0" > /tmp/device_status
+	
+"""
 
 
 from os import system
