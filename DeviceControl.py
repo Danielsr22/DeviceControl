@@ -53,7 +53,7 @@ if (status == "1"):
 		system(disable_dev)
 		print('Desactivando...')
 		system('notify-send -i checkbox-mixed-symbolic "Disposivo Desactivado" "El dispositivo Synaptics Large Touch Screen ha sido desactivado"')
-		system('echo "0" > /tmp/touchscreen_status')
+		system('echo "0" > /tmp/device_status')
 	except:
 		system('notify-send -i checkbox-mixed-symbolic "Error al Desactivar" "Se produjo un error al intentar desactivar el dispositivo"')
 
@@ -62,6 +62,6 @@ if (status == "0"):
 		print('Activando...')
 		system(enable_dev)
 		system('notify-send -i checkbox-checked-symbolic "Disposivo Activado" "El dispositivo Synaptics Large Touch Screen ha sido activado"')
-		system('echo "1" > /tmp/touchscreen_status')
+		system('echo "1" > /tmp/device_status')
 	except:
 		system('notify-send -i checkbox-checked-symbolic "Error al Activar" "Se produjo un error al intentar activar el dispositivo"')
