@@ -46,22 +46,18 @@ print ('ID: '+out)
 
 ## Formo los comandos para Activar/Desactivar el dispositivo
 disable_dev = disable_cmd+out
-disable_dev = disable_dev
 
 enable_dev = enable_cmd+out
-enable_dev = enable_dev
 
 ## Verifico estado actual
 status = str(check_output(status_cmd))
 status = status.split('\\n')[0].split("'")[-1]
 
-
-
 if (status == "1"):
 	try:
 		system(disable_dev)
 		print('Desactivando...')
-		cmdDev = 'notify-send -i checkbox-mixed-symbolic "Disposivo Desactivado" "'+device+' ha sido desactivado"'
+		cmdDev = 'notify-send -i checkbox-mixed-symbolic "Dispositivo Desactivado" "'+device+' ha sido desactivado"'
 		system(cmdDev)
 		system('echo "0" > /tmp/device_status')
 	except:
@@ -71,7 +67,7 @@ if (status == "0"):
 	try:
 		system(enable_dev)
 		print('Activando...')
-		cmdDev = 'notify-send -i checkbox-checked-symbolic "Disposivo Activado" "'+device+' ha sido activado"'
+		cmdDev = 'notify-send -i checkbox-checked-symbolic "Dispositivo Activado" "'+device+' ha sido activado"'
 		system(cmdDev)
 		system('echo "1" > /tmp/device_status')
 	except:
